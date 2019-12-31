@@ -1,0 +1,37 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+HOST_IP = '192.168.42.42'
+HOST2_IP = '192.168.42.43'
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+config.vm.define "puppet-master" do |puppet1|
+puppet1.vm.hostname = "puppet-master.rnstech.com"
+puppet1.vm.box = "bento/centos-7.2"
+puppet1.vm.box_url = "bento/centos-7.2"
+puppet1.vm.network :private_network,
+      ip: HOST_IP,
+      netmask: '255.255.255.0'
+puppet1.vm.provider "virtualbox" do |v|
+	v.memory = 4096
+	v.cpus = 2
+end
+puppet1.vm.network :forwarded_port, guest: 80, host: 8080
+puppet1.vm.provision 'shell', path: 'quickstart.sh'	
+end
+
+config.vm.define "puppet-agent" do |puppet2|
+puppet2.vm.hostname = "puppet-agent.rnstech.com"
+puppet2.vm.box = "bento/centos-7.2"
+puppet2.vm.box_url = "bento/centos-7.2"
+puppet2.vm.network :private_network,
+      ip: HOST2_IP,
+      netmask: '255.255.255.0'
+puppet2.vm.provider "virtualbox" do |v|
+   v.memory = 1024
+puppet2.vm.provision 'shell', path: 'quickstart.sh'	
+end
+end
+end
