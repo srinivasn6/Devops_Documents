@@ -1,0 +1,53 @@
+ 1  yum search JDK
+    2  uname -a
+    3  yum install -y java-1.8.0-openjdk-devel.x86_64
+    4  java -version
+    5  which java
+    6  exit
+    7  java -version
+    8  wget http://apachemirror.wuchna.com/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
+    9  yum install wget -y
+   10  wget http://apachemirror.wuchna.com/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
+   11  ll
+   12  mkdir workspace
+   13  mv apache-maven-3.6.1-bin.tar.gz workspace/
+   14  ll
+   15  cd workspace/
+   16  ll
+   17  tar -xzvf apache-maven-3.6.1-bin.tar.gz
+   18  history
+   19  ll
+   20  rm -rf apache-maven-3.6.1-bin.tar.gz
+   21  ll
+   22  mv apache-maven-3.6.1/ maven3
+   23  ll
+   24  ll maven3/
+   25  cd maven3/
+   26  ll
+   27  pwd
+   28  mvn version
+   29  ll bin
+   30  env
+   31  ls -lrth
+   32  dir
+   33  hi
+   34  echo $PATH
+   35  ls
+   36  which ls
+   37  cd bin/
+   38  pwd
+   39  export M2_HOME=/root/workspace/maven3/
+   40  export PATH=$M2_HOME/bin:$PATH
+   41  mvn version
+   42  mvn --version
+   43  exit
+   44  mvn --version
+   45  cd ~
+   46  ll -a
+   47  vi .bashrc
+   48  mvn --version
+   49  source .bashrc
+   50  mvn --version
+   51  exit
+   52  mvn --version
+   53  history

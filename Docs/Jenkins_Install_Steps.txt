@@ -1,0 +1,18 @@
+Install Java:
+	$ yum install java-1.8.0-openjdk-devel
+  
+Enable the Jenkins repository:
+	$ curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
+  
+Import Key:
+	$ rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+  
+Install Jenkins:
+	$ yum install jenkins
+  
+Start Jenkins:
+	$ systemctl start jenkins
+  
+	$ systemctl status jenkins
+  
+	$ systemctl enable jenkins
